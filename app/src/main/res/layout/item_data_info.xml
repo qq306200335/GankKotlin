@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:paddingStart="@dimen/padding_middle"
+    android:paddingTop="@dimen/padding_medium"
+    android:paddingEnd="@dimen/padding_middle">
+
+    <ImageView
+        android:id="@+id/photo_iv_scene_i"
+        android:layout_width="104dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="@dimen/margin_medium"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/title_tv_scene_i"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_short"
+        android:lineSpacingExtra="1.5dp"
+        android:maxLines="2"
+        android:text="标题如果是一行的话"
+        android:textColor="@color/primaryText"
+        android:textSize="@dimen/text_size_moderate"
+        app:layout_constraintEnd_toStartOf="@id/photo_iv_scene_i"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/time_tv_scene_i"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="@dimen/margin_middle"
+        android:gravity="bottom"
+        android:text="2018-05-02"
+        android:textColor="@color/primaryText"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_tv_scene_i"
+        app:layout_constraintVertical_bias="1" />
+
+    <View
+        android:id="@+id/bottom_line_scene_i"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:background="@color/colorPrimaryLight"
+        app:layout_constraintTop_toBottomOf="@id/time_tv_scene_i" />
+</androidx.constraintlayout.widget.ConstraintLayout>
