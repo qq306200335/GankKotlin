@@ -1,5 +1,6 @@
 package com.xiaobai.libutils.common
 
+import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 
 /**
@@ -22,6 +23,10 @@ object MyLog {
     private const val NOTHING = 6
 
     private  var LEVEL = VERBOSE
+
+    fun initLog(){
+        Logger.addLogAdapter(AndroidLogAdapter())
+    }
 
     fun close(){
         LEVEL = NOTHING

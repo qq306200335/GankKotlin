@@ -2,6 +2,7 @@ package com.xiaobai.gankkotlin.app
 
 import android.app.Application
 import android.content.Context
+import com.xiaobai.libutils.common.MyLog
 
 /**
  * @author baiyunfei on 2018/11/23
@@ -13,6 +14,9 @@ class MyApplication : Application() {
         super.onCreate()
         mContext = this
 
+        MyLog.initLog()
+
+//        MyLog.close()
     }
 
     companion object {
