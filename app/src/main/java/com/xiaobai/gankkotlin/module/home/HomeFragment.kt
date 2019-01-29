@@ -50,13 +50,15 @@ class HomeFragment : BaseFragment(), HomeContract.HomeView {
         mPresenter.attachView(this)
     }
 
-    override fun initView(mView: View) {
-        refreshLayout = mView.findViewById(R.id.refresh_list_a)
-        dataRv = mView.findViewById(R.id.data_rv_list_a)
-        noticeTv = mView.findViewById(R.id.notice_tv_list_a)
+    override fun initView(view: View): View {
+        refreshLayout = view.findViewById(R.id.refresh_list_a)
+        dataRv = view.findViewById(R.id.data_rv_list_a)
+        noticeTv = view.findViewById(R.id.notice_tv_list_a)
 
-        val toolbarTitleTv: TextView = mView.findViewById(R.id.title_tv_toolbar)
+        val toolbarTitleTv: TextView = view.findViewById(R.id.title_tv_toolbar)
         toolbarTitleTv.text = "Gank"
+
+        return view
     }
 
     override fun initListener() {

@@ -30,7 +30,9 @@ class ClassifyFragment : BaseFragment() {
     override fun loadPresenter() {
     }
 
-    override fun initView(mView: View) {
+    override fun initView(view: View): View {
+
+        return view
     }
 
     override fun initListener() {

@@ -22,9 +22,11 @@ abstract class BaseTabListFragment : BaseTabFragment(), IBaseListView {
 
     private var handler = Handler(Looper.getMainLooper())
 
-    override fun initView(mView: View) {
-        refreshLayout = mView.findViewById(R.id.refresh_list_a)
-        noticeTv = mView.findViewById(R.id.notice_tv_list_a)
+    override fun initView(view: View): View {
+        refreshLayout = view.findViewById(R.id.refresh_list_a)
+        noticeTv = view.findViewById(R.id.notice_tv_list_a)
+
+        return view
     }
 
     //初始化刷新

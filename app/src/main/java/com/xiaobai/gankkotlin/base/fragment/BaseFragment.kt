@@ -32,8 +32,7 @@ abstract class BaseFragment : Fragment(), IBaseView, View.OnClickListener {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+        savedInstanceState: Bundle?): View? {
         if (mView == null) {
             mView = inflater.inflate(getLayoutId(), container, false)
             loadPresenter()
@@ -52,20 +51,13 @@ abstract class BaseFragment : Fragment(), IBaseView, View.OnClickListener {
 
     protected abstract fun loadPresenter()
 
-    protected abstract fun initView(mView: View)
+    protected abstract fun initView(view: View): View
 
     protected abstract fun initListener()
 
     protected abstract fun initData()
 
     protected abstract fun otherViewClick(view: View)
-
-    /**
-     * @return 显示的内容
-     */
-    override fun getView(): View {
-        return View.inflate(mContext, getLayoutId(), null)
-    }
 
     /**
      * 点击的事件的统一的处理
