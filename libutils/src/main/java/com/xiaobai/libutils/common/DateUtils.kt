@@ -463,6 +463,43 @@ object DateUtils {
         return formatter.format(calendar.time)
     }
 
+    /**
+     * 得到当前日期的前一天日期
+     *
+     * @return yyyy-MM-dd
+     */
+    fun getBeforeDate(date: String): String {
+
+        val year = Integer.parseInt(date.substring(0, 4))
+        val month = Integer.parseInt(date.substring(5, 7))
+        val day = Integer.parseInt(date.substring(8, 10))
+
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month - 1, day)
+
+        calendar.add(Calendar.DAY_OF_YEAR, -1)
+        val formatter = SimpleDateFormat("yyyy-MM-dd")
+        return formatter.format(calendar.time)
+    }
+
+    /**
+     * 得到当前日期的后一天日期
+     *
+     * @return yyyy-MM-dd
+     */
+    fun getAfterDate(date: String): String {
+
+        val year = Integer.parseInt(date.substring(0, 4))
+        val month = Integer.parseInt(date.substring(5, 7))
+        val day = Integer.parseInt(date.substring(8, 10))
+
+        val calendar = Calendar.getInstance()
+        calendar.set(year, month - 1, day)
+
+        calendar.add(Calendar.DAY_OF_YEAR, 1)
+        val formatter = SimpleDateFormat("yyyy-MM-dd")
+        return formatter.format(calendar.time)
+    }
 
     /**
      * 为单数加0
