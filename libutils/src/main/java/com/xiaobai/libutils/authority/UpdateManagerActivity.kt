@@ -31,7 +31,9 @@ class UpdateManagerActivity : AppCompatActivity() {
         saveFilePath = intent.getStringExtra(SAVE_FILE_PATH)
         authority = intent.getStringExtra(AUTHORITY)
 
-        val intent0 = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES)
+        //设置包名，可直接跳转当前软件的设置页面
+        val packageURI = Uri.parse("package:$packageName")
+        val intent0 = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES, packageURI)
         startActivityForResult(intent0, 10086)
     }
 

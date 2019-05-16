@@ -1,4 +1,4 @@
-package com.kzcpm.commonview.chart
+package com.xiaobai.libview.chart
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -115,8 +115,8 @@ class LineChartView : View {
     private val xValueList = mutableListOf<String>()
 
     //值颜色列表
-    val typeValueList = mutableListOf<String>()
-    val typeColorList = mutableListOf<Int>()
+    private val valueTypeList = mutableListOf<String>()
+    private val colorTypeList = mutableListOf<Int>()
 
     private var n = 0
 
@@ -401,11 +401,11 @@ class LineChartView : View {
     private fun drawOther(canvas: Canvas) {
 
         //有多条数据则绘制
-        if (typeValueList.size > 1) {
+        if (valueTypeList.size > 1) {
 
             //倒序
-            typeValueList.reverse()
-            typeColorList.reverse()
+            valueTypeList.reverse()
+            colorTypeList.reverse()
 
             mPaint.strokeWidth = xStrokeWidth.toFloat()
             mPaint.textSize = xTextSize.toFloat()
@@ -413,23 +413,23 @@ class LineChartView : View {
             //绘制颜色对应类型
             var beforeWidth = width - marginLong
 
-            for (i in typeValueList.indices) {
+            for (i in valueTypeList.indices) {
 
                 //绘制字体的颜色
                 mPaint.color = Color.BLACK
 
                 //拿到字符串的宽度
-                val stringWidth = mPaint.measureText(typeValueList[i])
+                val stringWidth = mPaint.measureText(valueTypeList[i])
 
                 val xWidth = beforeWidth - stringWidth
 
                 beforeWidth = xWidth - marginMiddle - marginLittle
 
-                canvas.drawText(typeValueList[i], xWidth, marginLarge, mPaint)
+                canvas.drawText(valueTypeList[i], xWidth, marginLarge, mPaint)
 
                 //绘制方块的颜色
-                if (typeColorList.size > i) {
-                    mPaint.color = typeColorList[i]
+                if (colorTypeList.size > i) {
+                    mPaint.color = colorTypeList[i]
                 }
 
                 canvas.drawCircle(
@@ -441,8 +441,8 @@ class LineChartView : View {
             }
 
             //撤销倒序
-            typeValueList.reverse()
-            typeColorList.reverse()
+            valueTypeList.reverse()
+            colorTypeList.reverse()
         }
     }
 
@@ -469,8 +469,8 @@ class LineChartView : View {
             brokenPathList.add(path)
 
             //有多种颜色，则根据size替换颜色
-            if (typeColorList.size > i) {
-                brokenPaint.color = typeColorList[i]
+            if (colorTypeList.size > i) {
+                brokenPaint.color = colorTypeList[i]
             }
             canvas.drawPath(path, brokenPaint)
         }
@@ -537,10 +537,10 @@ class LineChartView : View {
     private fun drawTypeValue(canvas: Canvas, position: Int) {
 
         //有数据则绘制
-        if (typeValueList.size > 0) {
+        if (valueTypeList.size > 0) {
 
             //倒序
-            typeValueList.reverse()
+            valueTypeList.reverse()
             yValues.reverse()
 
             mPaint.strokeWidth = xStrokeWidth.toFloat()
@@ -548,21 +548,21 @@ class LineChartView : View {
 
             var beforeWidth = width - marginMiddle
 
-            for (i in typeValueList.indices) {
+            for (i in valueTypeList.indices) {
 
                 //绘制字体的颜色
                 mPaint.color = Color.BLACK
 
                 //拿到字符串的宽度
                 val valueWidth =
-                    mPaint.measureText(typeValueList[i] + "：" + yValues[i][position].toInt())
+                    mPaint.measureText(valueTypeList[i] + "：" + yValues[i][position].toInt())
 
                 val xValueWidth = beforeWidth - valueWidth
 
                 beforeWidth = xValueWidth - marginLittle
 
                 canvas.drawText(
-                    typeValueList[i] + "：" + yValues[i][position].toInt(),
+                    valueTypeList[i] + "：" + yValues[i][position].toInt(),
                     xValueWidth,
                     marginLong - marginLittle,
                     mPaint
@@ -571,7 +571,7 @@ class LineChartView : View {
         }
 
         //撤销倒序
-        typeValueList.reverse()
+        valueTypeList.reverse()
         yValues.reverse()
 
         //拿到字符串的宽度
@@ -583,6 +583,26 @@ class LineChartView : View {
             marginLong - marginLittle,
             mPaint
         )
+    }
+
+    /**
+     * 设置值集合
+     *
+     * @param values 值集合
+     */
+    fun setValueTypes(values: MutableList<String>) {
+        valueTypeList.clear()
+        valueTypeList.addAll(values)
+    }
+
+    /**
+     * 设置值集合
+     *
+     * @param values 值集合
+     */
+    fun setColorTypes(values: MutableList<Int>) {
+        colorTypeList.clear()
+        colorTypeList.addAll(values)
     }
 
     /**
