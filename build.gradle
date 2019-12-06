@@ -1,13 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.3.21'
+    ext.kotlin_version = '1.3.61'
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.android.tools.build:gradle:3.5.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -29,12 +29,12 @@ task clean(type: Delete) {
 }
 
 ext {
-    compileSdkVersion = 28
-    buildToolsVersion = "28.0.3"
+    compileSdkVersion = 29
+    buildToolsVersion = "29.0.2"
     applicationId = "com.xiaobai.gankkotlin"
     minSdkVersion = 21
     targetSdkVersion = 28
     versionCode = 1
     versionName = "1.0.0"
-    appcompatVersion = '1.0.2'
+    appcompatVersion = '1.1.0'
 }

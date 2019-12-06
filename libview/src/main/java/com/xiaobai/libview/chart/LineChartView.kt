@@ -7,6 +7,7 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
+import com.kzcpm.commonview.chart.ChartUtil
 import com.xiaobai.libutils.common.DensityUtils
 import com.xiaobai.libview.R
 
